@@ -2,14 +2,14 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 
-# Specify the path to your ChromeDriver
-chromedriver_path = 'D:/Applications/ChromeDriver/chromedriver.exe'
+# Specify the correct path to your ChromeDriver
+chromedriver_path = r'D:/Applications/Python/chromedriver/chromedriver.exe'  # Updated path
 
 # Create a new Chrome options object
 options = Options()
 options.add_argument("--start-maximized")
 options.add_argument("--disable-extensions")  # Disable extensions for faster performance
-options.add_argument("--headless")  # Run Chrome in headless mode (optional, for background execution)
+#options.add_argument("--headless")  # Run Chrome in headless mode (optional, for background execution)
 
 # Disable the use of any existing user profile
 options.add_argument("--incognito")  # Run in incognito mode to avoid profile use
@@ -17,9 +17,8 @@ options.add_argument("--incognito")  # Run in incognito mode to avoid profile us
 # Initialize the WebDriver with the specified options
 driver = webdriver.Chrome(service=Service(chromedriver_path), options=options, keep_alive=True)
 
-# Example of logging into the new website
 # Navigate to the login page
-driver.get('https://your-game-website.com/login')
+driver.get('http://corrado-game.org/login1.php?errorMessage=')
 
 # Locate the username and password fields, and login button (adjust selectors accordingly)
 username_field = driver.find_element("name", "username")

@@ -1,0 +1,869 @@
+
+<!-- saved from url=(0053)http://corrado-game.org/freya/game.php?page=buildings -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Corrado-Game Freya - Freya</title>
+
+<link rel="stylesheet" type="text/css" href="./Buildings_files/jquery.css">
+<link rel="stylesheet" type="text/css" href="./Buildings_files/ingame.css">
+<link rel="stylesheet" type="text/css" href="./Buildings_files/formate.css">
+<link rel="shortcut icon" href="http://corrado-game.org/freya/favicon.ico" type="image/x-icon">
+<script type="text/javascript">
+var serverTime 	= new Date(2024, 11, 23, 6, 57, 43);
+var startTime	= serverTime.getTime();
+var localTime 	= new Date();
+localTS = localTime.getTime();
+var ServerTimezoneOffset = 3600 + localTime.getTimezoneOffset()*60;
+var Gamename	= document.title;
+var Ready		= "Ready";
+var Skin		= "./styles/theme/gow/";
+var Lang		= "en";
+var head_info	= "Information";
+var auth		= 0;
+var days 		= ["Sun","Mon","Tus","Wed","Thu","Fri","Sat"];
+var months 		= ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+var tdformat	= "[M] [D] [d] [H]:[i]:[s]";
+</script>
+<script type="text/javascript" src="./Buildings_files/jQuery.js.download"></script>
+<script type="text/javascript" src="./Buildings_files/base.js.download"></script>
+
+
+
+
+<script type="text/javascript" src="./Buildings_files/topnav.js.download"></script>
+<script type="text/javascript" src="./Buildings_files/jquery.countdown_new.js.download"></script>
+<script type="text/javascript" src="./Buildings_files/planetmenu.js.download"></script>
+<script type="text/javascript">
+setInterval(function() {
+	serverTime.setSeconds(serverTime.getSeconds()+1);
+}, 1000);
+
+$(function(){
+	$("body").show();
+});
+</script>
+<style type="text/css"></style><style type="text/css" id="operaUserStyle">
+  video {
+    filter: -opera-shader(url(data:text/plain;base64,Ly8gaHR0cHM6Ly9naXRodWIuY29tL0dQVU9wZW4tRWZmZWN0cy9GaWRlbGl0eUZYLUNBUwovLyB2MwoKdW5pZm9ybSBzaGFkZXIgaUNodW5rOwp1bmlmb3JtIGZsb2F0MiBpQ2h1bmtTaXplOwp1bmlmb3JtIGZsb2F0MiBpTW91c2U7CnVuaWZvcm0gZmxvYXQgaUFyZ3NbMV07Cgpjb25zdCBmbG9hdCBFUFNJT04gPSAwLjE7CmNvbnN0IGZsb2F0IFZfTUlOID0gMDsKY29uc3QgZmxvYXQgVl9MT1cgPSAwLjI1Owpjb25zdCBmbG9hdCBWX01FRCA9IDAuNTsKY29uc3QgZmxvYXQgVl9ISUdIID0gMC43NTsKY29uc3QgZmxvYXQgVl9NQVggPSAxOwoKY29uc3QgZmxvYXQgVEhSRVNIT0xEX0FSRUEgPSA4MDAgKiA2MDA7CmNvbnN0IGZsb2F0IE1JTl9BUkVBID0gNDAwICogMTAwOwpjb25zdCBmbG9hdCBNSU5fU1RSSVAgPSAyMDsKY29uc3QgZmxvYXQgTUFSR0lOID0gMTsKCmZsb2F0MyBwaXhlbChpbnQgeCwgaW50IHksIGZsb2F0MiB4eSkgewogICAgcmV0dXJuIGlDaHVuay5ldmFsKHh5ICsgZmxvYXQyKHgsIHkpKS5yZ2I7Cn0KCmZsb2F0MyBzaGFycGVuKGZsb2F0MiB4eSkgewogICAgZmxvYXQzIGYgPQogICAgICAgIHBpeGVsKC0xLCAtMSwgeHkpICogIDEgKwogICAgICAgIHBpeGVsKCAwLCAtMSwgeHkpICogLTEgKwogICAgICAgIHBpeGVsKCAxLCAtMSwgeHkpICogIDEgKwoKICAgICAgICBwaXhlbCgtMSwgMCwgeHkpICogLTEgICsKICAgICAgICBwaXhlbCggMCwgMCwgeHkpICogLTEgICsKICAgICAgICBwaXhlbCggMSwgMCwgeHkpICogLTEgICsKCiAgICAgICAgcGl4ZWwoLTEsIDEsIHh5KSAqIDEgICArCiAgICAgICAgcGl4ZWwoIDAsIDEsIHh5KSAqIC0xICArCiAgICAgICAgcGl4ZWwoIDEsIDEsIHh5KSAqIDE7CiAgICByZXR1cm4gZiAvIC0xOwp9CgpmbG9hdDQgUkdYMihmbG9hdDIgeHkpIHsKICAgIGZsb2F0NCBjb2xvciA9IGlDaHVuay5ldmFsKHh5KTsKCiAgICBpZiAoaUNodW5rU2l6ZS54ICogaUNodW5rU2l6ZS55IDwgTUlOX0FSRUEpIHsKICAgICAgICByZXR1cm4gY29sb3I7CiAgICB9CgogICAgaWYgKGlDaHVua1NpemUueSA8IE1JTl9TVFJJUCB8fCBpQ2h1bmtTaXplLnggPCBNSU5fU1RSSVApIHsKICAgICAgICByZXR1cm4gY29sb3I7CiAgICB9CgogICAgaWYgKHh5LnggPCBNQVJHSU4gfHwgeHkueCA+IChpQ2h1bmtTaXplLnggLSBNQVJHSU4pIHx8CiAgICAgICAgeHkueSA8IE1BUkdJTiB8fCB4eS55ID4gKGlDaHVua1NpemUueSAtIE1BUkdJTikpIHsKICAgICAgICByZXR1cm4gY29sb3I7CiAgICB9CgogICAgcmV0dXJuIGZsb2F0NChzaGFycGVuKHh5KSwgMSk7Cn0KCmZsb2F0IG1pbjMoZmxvYXQgeCwgZmxvYXQgeSwgZmxvYXQgeikgewogICAgcmV0dXJuIG1pbih4LCBtaW4oeSwgeikpOwp9CgpmbG9hdCBtYXgzKGZsb2F0IHgsIGZsb2F0IHksIGZsb2F0IHopIHsKICAgIHJldHVybiBtYXgoeCwgbWF4KHksIHopKTsKfQoKZmxvYXQgcmNwKGZsb2F0IHYpIHsKICAgIHJldHVybiAxIC8gdjsKfQoKZmxvYXQzIFJHWDMoZmxvYXQyIHh5LCBmbG9hdCBzdHJlbmd0aCkgewogICAgZmxvYXQzIGEgPSBwaXhlbCgtMSwgLTEsIHh5KTsKICAgIGZsb2F0MyBiID0gcGl4ZWwoIDAsIC0xLCB4eSk7CiAgICBmbG9hdDMgYyA9IHBpeGVsKCAxLCAtMSwgeHkpOwoKICAgIGZsb2F0MyBkID0gcGl4ZWwoLTEsIDAsIHh5KTsKICAgIGZsb2F0MyBlID0gcGl4ZWwoIDAsIDAsIHh5KTsKICAgIGZsb2F0MyBmID0gcGl4ZWwoIDEsIDAsIHh5KTsKCiAgICBmbG9hdDMgZyA9IHBpeGVsKC0xLCAxLCB4eSk7CiAgICBmbG9hdDMgaCA9IHBpeGVsKCAwLCAxLCB4eSk7CiAgICBmbG9hdDMgaSA9IHBpeGVsKCAxLCAxLCB4eSk7CgogICAgZmxvYXQgbW5SID0gbWluMyhtaW4zKGQuciwgZS5yLCBmLnIpLCBiLnIsIGgucik7CiAgICBmbG9hdCBtbkcgPSBtaW4zKG1pbjMoZC5nLCBlLmcsIGYuZyksIGIuZywgaC5nKTsKICAgIGZsb2F0IG1uQiA9IG1pbjMobWluMyhkLmIsIGUuYiwgZi5iKSwgYi5iLCBoLmIpOwoKICAgIGZsb2F0IG1uUjIgPSBtaW4zKG1pbjMobW5SLCBhLnIsIGMuciksIGcuciwgaS5yKTsKICAgIGZsb2F0IG1uRzIgPSBtaW4zKG1pbjMobW5HLCBhLmcsIGMuZyksIGcuZywgaS5nKTsKICAgIGZsb2F0IG1uQjIgPSBtaW4zKG1pbjMobW5CLCBhLmIsIGMuYiksIGcuYiwgaS5iKTsKCiAgICBtblIgPSBtblIgKyBtblIyOwogICAgbW5HID0gbW5HICsgbW5HMjsKICAgIG1uQiA9IG1uQiArIG1uQjI7CgogICAgZmxvYXQgbXhSID0gbWF4MyhtYXgzKGQuciwgZS5yLCBmLnIpLCBiLnIsIGgucik7CiAgICBmbG9hdCBteEcgPSBtYXgzKG1heDMoZC5nLCBlLmcsIGYuZyksIGIuZywgaC5nKTsKICAgIGZsb2F0IG14QiA9IG1heDMobWF4MyhkLmIsIGUuYiwgZi5iKSwgYi5iLCBoLmIpOwoKICAgIGZsb2F0IG14UjIgPSBtYXgzKG1heDMobXhSLCBhLnIsIGMuciksIGcuciwgaS5yKTsKICAgIGZsb2F0IG14RzIgPSBtYXgzKG1heDMobXhHLCBhLmcsIGMuZyksIGcuZywgaS5nKTsKICAgIGZsb2F0IG14QjIgPSBtYXgzKG1heDMobXhCLCBhLmIsIGMuYiksIGcuYiwgaS5iKTsKCiAgICBteFIgPSBteFIgKyBteFIyOwogICAgbXhHID0gbXhHICsgbXhHMjsKICAgIG14QiA9IG14QiArIG14QjI7CgogICAgZmxvYXQgcmNwTVIgPSByY3AobXhSKTsKICAgIGZsb2F0IHJjcE1HID0gcmNwKG14Ryk7CiAgICBmbG9hdCByY3BNQiA9IHJjcChteEIpOwoKICAgIGZsb2F0IGFtcFIgPSBzYXR1cmF0ZShtaW4obW5SLCAyIC0gbXhSKSAqIHJjcE1SKTsKICAgIGZsb2F0IGFtcEcgPSBzYXR1cmF0ZShtaW4obW5HLCAyIC0gbXhHKSAqIHJjcE1HKTsKICAgIGZsb2F0IGFtcEIgPSBzYXR1cmF0ZShtaW4obW5CLCAyIC0gbXhCKSAqIHJjcE1CKTsKCiAgICBhbXBSID0gc3FydChhbXBSKTsKICAgIGFtcEcgPSBzcXJ0KGFtcEcpOwogICAgYW1wQiA9IHNxcnQoYW1wQik7CgogICAgZmxvYXQgcGVhayA9IC1yY3AobWl4KDgsIDUsIHN0cmVuZ3RoKSk7CgogICAgZmxvYXQgd1IgPSBhbXBSICogcGVhazsKICAgIGZsb2F0IHdHID0gYW1wRyAqIHBlYWs7CiAgICBmbG9hdCB3QiA9IGFtcEIgKiBwZWFrOwoKICAgIGZsb2F0IHJjcFdlaWdodFIgPSByY3AoMSArIDQgKiB3Uik7CiAgICBmbG9hdCByY3BXZWlnaHRHID0gcmNwKDEgKyA0ICogd0cpOwogICAgZmxvYXQgcmNwV2VpZ2h0QiA9IHJjcCgxICsgNCAqIHdCKTsKCiAgICByZXR1cm4gZmxvYXQzKAogICAgICAgIHNhdHVyYXRlKChiLnIgKiB3UiArIGQuciAqIHdSICsgZi5yICogd1IgKyBoLnIgKiB3UiArIGUucikgKiByY3BXZWlnaHRSKSwKICAgICAgICBzYXR1cmF0ZSgoYi5nICogd0cgKyBkLmcgKiB3RyArIGYuZyAqIHdHICsgaC5nICogd0cgKyBlLmcpICogcmNwV2VpZ2h0RyksCiAgICAgICAgc2F0dXJhdGUoKGIuYiAqIHdCICsgZC5iICogd0IgKyBmLmIgKiB3QiArIGguYiAqIHdCICsgZS5iKSAqIHJjcFdlaWdodEIpKTsKfQoKCmZsb2F0NCBtYWluKGZsb2F0MiB4eSkgewoKICAgIGZsb2F0NCBvcmlnaW5hbENvbG9yID0gaUNodW5rLmV2YWwoeHkpOwogICAgaWYgKG9yaWdpbmFsQ29sb3IuYSA8IDEpIHsKICAgICAgICByZXR1cm4gaUNodW5rLmV2YWwoeHkpOwogICAgfQoKICAgIGZsb2F0IGludGVuc2l0eSA9IGlBcmdzWzBdOwogICAgZmxvYXQgc3RyZW5ndGggPSAwOwogICAgZmxvYXQzIGNvbG9yOwoKICAgIGlmIChpbnRlbnNpdHkgPCBWX01JTiArIEVQU0lPTikgewogICAgICAgIHN0cmVuZ3RoID0gMC4xMDsKICAgICAgICBjb2xvciA9IFJHWDMoeHksIHN0cmVuZ3RoKTsKCiAgICB9IGVsc2UgaWYgKGludGVuc2l0eSA+IFZfTE9XIC0gRVBTSU9OICYmIGludGVuc2l0eSA8IFZfTE9XICsgRVBTSU9OKSB7CiAgICAgICAgc3RyZW5ndGggPSAwLjMzOwogICAgICAgIGNvbG9yID0gUkdYMyh4eSwgc3RyZW5ndGgpOwoKICAgIH0gZWxzZSBpZiAoaW50ZW5zaXR5ID4gVl9NRUQgLSBFUFNJT04gJiYgaW50ZW5zaXR5IDwgVl9NRUQgKyBFUFNJT04pIHsKICAgICAgICBzdHJlbmd0aCA9IDAuNTsKICAgICAgICBjb2xvciA9IFJHWDMoeHksIHN0cmVuZ3RoKTsKCiAgICB9IGVsc2UgaWYgKGludGVuc2l0eSA+IFZfSElHSCAtIEVQU0lPTiAmJiBpbnRlbnNpdHkgPCBWX0hJR0ggKyBFUFNJT04pIHsKICAgICAgICBzdHJlbmd0aCA9IDAuOTk7CiAgICAgICAgY29sb3IgPSBSR1gzKHh5LCBzdHJlbmd0aCk7CgogICAgfSBlbHNlIGlmIChpbnRlbnNpdHkgPiBWX01BWCAtIEVQU0lPTikgewogICAgICAgIHN0cmVuZ3RoID0gMTsKICAgICAgICBjb2xvciA9IFJHWDIoeHkpLnJnYjsKICAgIH0KCiAgICByZXR1cm4gZmxvYXQ0KGNvbG9yLCBvcmlnaW5hbENvbG9yLmEpOwp9) -opera-args(0.50 calc(env(-opera-gx-accent-color-r)/255) calc(env(-opera-gx-accent-color-g)/255) calc(env(-opera-gx-accent-color-b)/255)));
+  }
+</style></head>
+<body id="buildings" class="normal" style="background-color: rgb(0, 0, 0);">
+<div id="tooltip" class="tip" style="top: 171px; left: 1217.5px; display: none;"><table style="width:300px"><tbody><tr><th colspan="2"> Crystal Mine 157</th></tr><tr><td>Metal</td><td>2.673.305.049.388.028.061.492.944.306.176.000</td></tr><tr><td>Crystal</td><td>1.336.652.524.694.014.030.746.472.153.088.000</td></tr><tr><td>Deuterium</td><td>0</td></tr><tr><td>Time</td><td>00h 00m 00s</td></tr><tr><td colspan="2">
+						<form action="http://corrado-game.org/freya/game.php?page=buildings" method="post" class="build_form2">
+						<input type="hidden" name="cmd" value="destroy">
+						<input type="hidden" name="building" value="2">
+						<button type="submit" class="build_submit onlist">Dismantle</button></form></td></tr></tbody></table></div><div id="leftmenu">
+<!--link href="styles/css/vertical_menu_basic.css" rel="stylesheet" type="text/css"-->
+<script type="text/javascript" src="./Buildings_files/jquery.hoverIntent.minified.js.download"></script>
+<script type="text/javascript" src="./Buildings_files/jquery.dcverticalmegamenu.1.1.js.download"></script>
+<script type="text/javascript">
+
+$(document).ready(function($){
+	$('#mega-1').dcVerticalMegaMenu({
+		rowItems: '3',
+		speed: 'fast',
+		effect: 'slide',
+		direction: 'right'
+	});
+	
+	var untilYear = new Date();
+	var sinceYear = new Date('12/13/2024');
+$('#defaultCountdown').countdown({since: sinceYear,
+                                  format: 'YdHMS',
+                                  layout:'<b>{yn} {yl},{dn} {dl} and '+ 
+                                       '{hn} {hl}, {mn} {ml}, {sn} {sl}</b>'});
+	
+});
+</script>
+
+
+  <img src="./Buildings_files/logo.png" border="5" width="210px" height="110px">
+<div class="wrap">
+<div class="demo-container clear">
+<div class="dcjq-vertical-mega-menu">
+<ul id="mega-1" class="menu right" style="list-style:none;">
+
+<li> </li><li><a href="http://corrado-game.org/freya/game.php?page=reward"><span class="blink_text"><div class="button">Vote Now !!</div></span></a></li>  
+<li><div id="alarm" style="display:none;"><span class="blink_text"><img src="./Buildings_files/light_alarm-strobe.gif"></span></div> </li>
+<li id="menu-item-12001">
+	<a href="http://corrado-game.org/freya/game.php?page=buildings#" class="dc-mega">Special Features<span class="dc-mega-icon"></span></a>
+		<div class="sub-container non-mega" style="height: 337px; margin-top: -28px; z-index: 1000; display: none;"><ul class="sub">	
+
+<li><a href="http://corrado-game.org/freya/game.php?page=reward" style="color: #038DFE;">Vote</a></li>
+		<li><a href="http://corrado-game.org/freya/game.php?page=relocate" style="color: #FE0202;">Edit Planet-Moon</a></li>
+		<li><a href="http://corrado-game.org/freya/game.php?page=officier" style="color: #22F364;">Officers &amp; Bonus </a></li>
+                <li><a href="http://corrado-game.org/freya/game.php?page=lotteryNew" style="color: #FC055B;">Lottery</a></li>
+	        <li><a href="http://corrado-game.org/freya/game.php?page=achievement" style="color: #33FF00;">Achievements </a></li>
+		<li><a href="http://corrado-game.org/freya/game.php?page=adds" style="color: #6805FC;">Moon Shot Bot</a></li>
+	        <li><a href="http://corrado-game.org/freya/game.php?page=bonuspage" style="color: #C8C8C8;">Daily Bonus</a></li>
+		<li><a href="http://corrado-game.org/freya/game.php?page=bonuswpage" style="color: #FFFF66;">Lucky7</a></li>
+                <li><a onclick="return Dialog.info(43)" href="http://corrado-game.org/freya/game.php?page=buildings#" style="color:#DC143C">Jump Gate</a></li> 
+                <li><a href="http://corrado-game.org/freya/game.php?page=buypremium" style="color: #038DFE;">Premium Page</a></li>
+					<li><a href="http://corrado-game.org/freya/game.php?page=harvest" style="color: #038DFE;">Harvest</a></li>
+			<li><a href="http://corrado-game.org/freya/game.php?page=ptrader" style="color: #038DFE;">Premium Trader</a></li>
+                        <li><a href="http://corrado-game.org/freya/game.php?page=search_p" style="color: #038DFE;">Player Search</a></li>
+		        <li><a href="http://corrado-game.org/freya/game.php?page=new_rank" style="color: #038DFE;">Statistics II</a></li>
+		        <li><a href="http://corrado-game.org/freya/game.php?page=showdebris" style="color: #038DFE;">Debris Field-Search</a></li>
+
+		           </ul></div>
+       </li>
+
+	
+
+	                             <li><a href="http://corrado-game.org/freya/game.php?page=payments" style="color: #038DFE;"><big><b>DarkMatter</b></big></a></li>
+                                     <li><a href="http://corrado-game.org/freya/game.php?page=overview">Overview</a></li>
+		<li class=""><a href="http://corrado-game.org/freya/game.php?page=imperium">Empire</a></li>		<li class=""><a href="http://corrado-game.org/freya/game.php?page=buildings&amp;mode=research">Research</a></li>		<li class=""><a href="http://corrado-game.org/freya/game.php?page=buildings">Buildings</a></li>		<li><a href="http://corrado-game.org/freya/game.php?page=buildings&amp;mode=fleet">Shipyard</a></li>		<li class=""><a href="http://corrado-game.org/freya/game.php?page=buildings&amp;mode=defense">Defense</a></li>		                    <li><a href="http://corrado-game.org/freya/game.php?page=ptrader">Trader </a></li>
+		<li><a href="http://corrado-game.org/freya/game.php?page=fleet">Fleet</a></li>                <li><a href="http://corrado-game.org/freya/game.php?page=galaxy">Galaxy</a></li>		<li><a href="http://corrado-game.org/freya/game.php?page=resources">Resources</a></li>	        <li><a href="http://corrado-game.org/freya/game.php?page=techtree">Technology</a></li>		<li><a href="http://corrado-game.org/freya/game.php?page=battlesim">Combat Simulator</a></li>	        <li><a href="http://corrado-game.org/freya/game.php?page=fleettrader">Fleet-Defense-Trader</a></li>		<li><a href="http://corrado-game.org/freya/game.php?page=alliance">Alliance</a></li>		                    <li><a href="http://corrado-game.org/freya/game.php?page=infouni">Game Details</a></li>
+		<li><a href="http://corrado-game.org/forum/" target="forum">Forum</a></li>                <li><a href="http://corrado-game.org/freya/game.php?page=lotteryNew" style="color:lime;padding-right: 10px">Lottery Drawl in:<br><span class="countdown2" secs="228679"></span></a></li>
+	        
+               
+
+
+
+		<li>
+			<a href="http://corrado-game.org/freya/game.php?page=buildings#">
+				<b>Online For</b> :<span id="defaultCountdown" class="countdown hasCountdown"><b>0 Years,10 Days and 0 Hours, 57 Minutes, 45 Seconds</b></span></a>
+		</li>
+
+
+
+</ul>
+</div>
+</div>
+</div>
+</div><div id="header">
+	
+
+
+
+
+<a href="http://corrado-game.org/freya/game.php?page=messages" style="color: #058FFC;padding-right: 10px">|Messages 0|</a><a href="http://www.corrado-game.org/rules.php" target="_blank" style="color: #058FFC;padding-right: 10px">|Rules-Conditions| </a>
+<a href="http://www.corrado-game.org/faq.php" target="_blank" style="color: #058FFC;padding-right: 10px">|Newbie Guide-Faq | </a>
+<a href="http://www.corrado-game.org/support" target="_blank" style="color: #058FFC;padding-right: 10px">|Support Tickets|</a>
+<a href="http://corrado-game.org/freya/game.php?page=statistics" style="color: #058FFC;padding-right: 10px">|Statistics|</a><a href="http://corrado-game.org/freya/game.php?page=records" style="color: #058FFC;padding-right: 10px">|Records|</a><a href="http://corrado-game.org/freya/game.php?page=topkb" style="color: #058FFC;padding-right: 10px">|Hall of Fame|</a><a href="http://corrado-game.org/freya/game.php?page=search" style="color: #058FFC;padding-right: 10px">|Search|</a><a href="http://www.corrado-game.org/banned.php" target="_blank" style="color: #058FFC;padding-right: 10px">|Banned|</a>
+<a href="javascript:OpenPopup(&#39;?page=notes&#39;,&#39;Notes&#39;, 720, 300);" style="color: #058FFC;padding-right: 10px">|Notes|</a><a href="http://corrado-game.org/freya/game.php?page=buddy" style="color: #058FFC;padding-right: 10px">|Buddy list|</a><a href="http://corrado-game.org/freya/game.php?page=options" style="color: #058FFC;padding-right: 10px">|Options|</a>
+<a href="http://corrado-game.org/freya/game.php?page=logout" style="color: #058FFC;padding-right: 10px">|Logout|</a>
+
+
+
+
+	 <div id="planetselect">
+		<input style="width: 20px;float:left;position:relative;margin-top:37px;" value="&lt;" onclick="eval(&#39;location=\&#39;&#39;+document.getElementById(&#39;lstPlaneta&#39;).options[document.getElementById(&#39;lstPlaneta&#39;).selectedIndex-1].value+&#39;\&#39;&#39;);" type="button">
+		<select onchange="document.location = $(this).val();" name="lstPlaneta" id="lstPlaneta">
+			<option value="?page=buildings&amp;mode=&amp;cp=2195" selected="selected">Lorg&nbsp;[6:32:8]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2198">Corn&nbsp;[6:32:9]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2199">Potato&nbsp;[6:32:10]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2200">Leak&nbsp;[6:32:7]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2201">Watermelon&nbsp;[6:32:11]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2202">Zuch&nbsp;[6:32:6]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2203">Lorg Moon (Moon)&nbsp;[6:32:8]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2206">Colony&nbsp;[6:32:5]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2208">Colony&nbsp;[7:125:9]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2209">Colony&nbsp;[6:125:9]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2212">Colony&nbsp;[6:32:12]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2214">Colony&nbsp;[6:32:4]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2218">Colony&nbsp;[6:32:3]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2256">Colony&nbsp;[6:31:3]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2257">Colony&nbsp;[6:31:4]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2258">Colony&nbsp;[6:31:5]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2259">Colony&nbsp;[6:31:6]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2260">Colony&nbsp;[6:31:7]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2261">Colony&nbsp;[6:31:8]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2262">Colony&nbsp;[6:31:9]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2263">Colony&nbsp;[6:31:10]&nbsp;&nbsp;</option>
+<option value="?page=buildings&amp;mode=&amp;cp=2264">Colony&nbsp;[6:31:11]&nbsp;&nbsp;</option>
+
+		</select>
+		<input style="width: 20px;float:left;position:relative;margin-top:37px;" value="&gt;" onclick="eval(&#39;location=\&#39;&#39;+document.getElementById(&#39;lstPlaneta&#39;).options[document.getElementById(&#39;lstPlaneta&#39;).selectedIndex+1].value+&#39;\&#39;&#39;);" type="button"> 
+	</div>
+	<div id="resourcesdiv">
+		<ul id="resourcestable">
+			<li class="resourceinfo">
+				<p><img src="./Buildings_files/metall.gif" alt="Metal"></p>
+				<p class="res_name">Metal</p>
+				<p class="res_current tooltip" name="8.107.122.671.957.865.249.251.786.399.678.464" id="current_metal" atr="8.1071226719579E+33">8.124.886.870.059.887 T</p>
+				<p class="res_max tooltip" name="87.943.806.128.122.069.933.914.018.645.568.737.707.360.548.024.221.696" id="max_metal">87.944 O</p>
+			</li>
+			<li class="resourceinfo">
+				<p><img src="./Buildings_files/kristall.gif" alt="Crystal"></p>
+				<p class="res_name">Crystal</p>
+				<p class="res_current tooltip" name="834.764.880.034.743.429.650.159.983.656.960" id="current_crystal" atr="8.3476488003474E+32">836.042.499.233.557 T</p>
+				<p class="res_max tooltip" name="1.263.990.527.230.283.486.330.853.713.325.758.022.852.738.421.882.880" id="max_crystal">1.264 O</p>
+			</li>
+			<li class="resourceinfo">
+				<p><img src="./Buildings_files/deuterium.gif" alt="Deuterium"></p>
+				<p class="res_name">Deuterium</p>
+				<p class="res_current tooltip" name="6.415.889.926.653.472.653.720.147.588.022.272" id="current_deuterium" atr="6.4158899266535E+33">6.420.085.642.315.491 T</p>
+				<p class="res_max tooltip" name="1.263.990.527.230.283.486.330.853.713.325.758.022.852.738.421.882.880" id="max_deuterium">1.264 O</p>
+			</li>
+			<li class="resourceinfo">
+				<p><img src="./Buildings_files/darkmatter.gif" alt="Dark matter"></p>
+				<p class="res_name">Dark matter</p>
+				<p class="res_current tooltip" name="13.000">13 K</p>
+				<p>&nbsp;</p>
+			</li>
+			<li class="resourceinfo">
+				<p><img src="./Buildings_files/energie.gif" alt="Energy"></p>
+				<p class="res_name">Energy</p>
+				<p class="res_current tooltip" name="80.566.827.863.121.296.014.650.870.096.461.824/81.907.431.067.728.832.255.519.460.310.384.640">80.567 Q+/81.907 Q+</p>
+				<p>&nbsp;</p>
+			</li>
+		</ul>
+	</div>
+		<script type="text/javascript">
+	var resourceTickerMetal = {
+		available: 8.1071226719579E+33,
+		limit: [0, 87943806128122069933914018645568737707360548024221696],
+		production: 3996944572947096473214001071783936,
+		valueElem: "current_metal"
+	};
+	var resourceTickerCrystal = {
+		available: 8.3476488003474E+32,
+		limit: [0, 1263990527230283486330853713325758022852738421882880],
+		production: 287464319733813663352721407737856,
+		valueElem: "current_crystal"
+	};
+	var resourceTickerDeuterium = {
+		available: 6.4158899266535E+33,
+		limit: [0, 1263990527230283486330853713325758022852738421882880],
+		production: 944036023947699021267618553135104,
+		valueElem: "current_deuterium"
+	};
+
+	var vacation = 0;
+	if (!vacation) {
+		resourceTicker(resourceTickerMetal, true);
+		resourceTicker(resourceTickerCrystal, true);
+		resourceTicker(resourceTickerDeuterium, true);
+	}
+	</script>
+ 
+    
+</div>
+
+<div id="content">
+	  <table>	
+	<form action="http://corrado-game.org/freya/game.php?page=buildings" method="post" class="build_form"></form>
+							<tbody><tr><td>
+			1<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(1)">
+							<img src="./Buildings_files/1.gif" alt="Metal Mine" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(1)">Metal Mine</a> (Level 179)			</td>
+					<td>
+						Metal: <b style="color:lime;" id="metal_1">1.988.321.558.255.882.480.591.600.571.383.808</b> Crystal: <b style="color:lime;" id="crystal_1">497.080.389.563.970.620.147.900.142.845.952</b> 
+					</td>
+					<td>
+																														<input type="hidden" name="cmd" value="insert">
+									<input type="hidden" name="building1" id="building1" value="0">
+									<a style="cursor: pointer;" onclick="$(&#39;#build1, #building1&#39;).val(parseInt($(&#39;#build1&#39;).val()) - 1);">-</a>
+									<input size="2" style="width: 20px;" type="text" value="0" name="build[]" id="build1" onkeyup="
+									$(&#39;#building1&#39;).val(parseInt($(&#39;#build1&#39;).val()));								
+									"><!-- Dor 2015 12 18, lets you edit field yourself -->
+									<a style="cursor: pointer;" onclick="$(&#39;#build1, #building1&#39;).val(parseInt($(&#39;#build1&#39;).val()) +1);">+</a>
+									<button type="submit" class="build_submit" onclick="$(&#39;.build_form&#39;).submit();return false;">Go</button>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="1" class="desc" name="1">Used in the extraction of metal ore,...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Metal Mine 179&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;994.160.779.127.941.240.295.800.285.691.904&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;248.540.194.781.985.310.073.950.071.422.976&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;1&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 00s
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+									<td>
+			2<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(2)">
+							<img src="./Buildings_files/2.gif" alt="Crystal Mine" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(2)">Crystal Mine</a> (Level 157)			</td>
+					<td>
+						Metal: <b style="color:lime;" id="metal_2">5.346.610.098.776.056.122.985.888.612.352.000</b> Crystal: <b style="color:red;" id="crystal_2">2.673.305.049.388.028.061.492.944.306.176.000</b> 
+					</td>
+					<td>
+																													<span style="color:red">Upgrade to level 158</span>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="2" class="desc" name="2">Crystals are the main resource used to...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Crystal Mine 157&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;2.673.305.049.388.028.061.492.944.306.176.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;1.336.652.524.694.014.030.746.472.153.088.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;2&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 02s
+					</td>
+				</tr>
+			</tbody></table>
+	  
+		</td></tr><tr>
+									<td>
+			3<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(3)">
+							<img src="./Buildings_files/3.gif" alt="Deuterium Refinery" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(3)">Deuterium Refinery</a> (Level 174)			</td>
+					<td>
+						Metal: <b style="color:lime;" id="metal_3">981.887.189.262.164.321.386.458.377.093.120</b> Crystal: <b style="color:lime;" id="crystal_3">327.295.729.754.054.725.757.090.100.412.416</b> 
+					</td>
+					<td>
+																														<input type="hidden" name="cmd" value="insert">
+									<input type="hidden" name="building3" id="building3" value="0">
+									<a style="cursor: pointer;" onclick="$(&#39;#build3, #building3&#39;).val(parseInt($(&#39;#build3&#39;).val()) - 1);">-</a>
+									<input size="2" style="width: 20px;" type="text" value="0" name="build[]" id="build3" onkeyup="
+									$(&#39;#building3&#39;).val(parseInt($(&#39;#build3&#39;).val()));								
+									"><!-- Dor 2015 12 18, lets you edit field yourself -->
+									<a style="cursor: pointer;" onclick="$(&#39;#build3, #building3&#39;).val(parseInt($(&#39;#build3&#39;).val()) +1);">+</a>
+									<button type="submit" class="build_submit" onclick="$(&#39;.build_form&#39;).submit();return false;">Go</button>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="3" class="desc" name="3">Deuterium is used as fuel for...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Deuterium Refinery 174&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;490.943.594.631.082.160.693.229.188.546.560&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;163.647.864.877.027.362.878.545.050.206.208&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;3&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 00s
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+									<td>
+			4<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(4)">
+							<img src="./Buildings_files/4.gif" alt="Solar Power plant" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(4)">Solar Power plant</a> (Level 180)			</td>
+					<td>
+						Metal: <b style="color:lime;" id="metal_4">3.728.102.921.729.779.795.224.439.147.200.512</b> Crystal: <b style="color:red;" id="crystal_4">1.491.241.168.691.911.860.443.700.428.537.856</b> 
+					</td>
+					<td>
+																													<span style="color:red">Upgrade to level 181</span>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="4" class="desc" name="4">Solar power plants absorb energy from...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Solar Power plant 180&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;1.864.051.460.864.889.897.612.219.573.600.256&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;745.620.584.345.955.930.221.850.214.268.928&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;4&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 01s
+					</td>
+				</tr>
+			</tbody></table>
+	  
+		</td></tr><tr>
+									<td>
+			5<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(6)">
+							<img src="./Buildings_files/6.gif" alt="University" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(6)">University</a> (Level 70)			</td>
+					<td>
+						Metal: <b style="color:lime;" id="metal_6">93.236.863.968.449.860.468.336.970.694.656</b> Crystal: <b style="color:lime;" id="crystal_6">46.618.431.984.224.930.234.168.485.347.328</b> Deuterium: <b style="color:lime;" id="deuterium_6">23.309.215.992.112.465.117.084.242.673.664</b> 
+					</td>
+					<td>
+																														<input type="hidden" name="cmd" value="insert">
+									<input type="hidden" name="building6" id="building6" value="0">
+									<a style="cursor: pointer;" onclick="$(&#39;#build6, #building6&#39;).val(parseInt($(&#39;#build6&#39;).val()) - 1);">-</a>
+									<input size="2" style="width: 20px;" type="text" value="0" name="build[]" id="build6" onkeyup="
+									$(&#39;#building6&#39;).val(parseInt($(&#39;#build6&#39;).val()));								
+									"><!-- Dor 2015 12 18, lets you edit field yourself -->
+									<a style="cursor: pointer;" onclick="$(&#39;#build6, #building6&#39;).val(parseInt($(&#39;#build6&#39;).val()) +1);">+</a>
+									<button type="submit" class="build_submit" onclick="$(&#39;.build_form&#39;).submit();return false;">Go</button>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="6" class="desc" name="6">Shortens research time each level by...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; University 70&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;46.618.431.984.224.930.234.168.485.347.328&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;23.309.215.992.112.465.117.084.242.673.664&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;11.654.607.996.056.232.558.542.121.336.832&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;6&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 00s
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+									<td>
+			6<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(14)">
+							<img src="./Buildings_files/14.gif" alt="Robot Factory" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(14)">Robot Factory</a> (Level 90)			</td>
+					<td>
+						Metal: <b style="color:lime;" id="metal_14">495.176.015.714.152.109.959.649.689.600</b> Crystal: <b style="color:lime;" id="crystal_14">148.552.804.714.245.632.987.894.906.880</b> Deuterium: <b style="color:lime;" id="deuterium_14">247.588.007.857.076.054.979.824.844.800</b> 
+					</td>
+					<td>
+																														<input type="hidden" name="cmd" value="insert">
+									<input type="hidden" name="building14" id="building14" value="0">
+									<a style="cursor: pointer;" onclick="$(&#39;#build14, #building14&#39;).val(parseInt($(&#39;#build14&#39;).val()) - 1);">-</a>
+									<input size="2" style="width: 20px;" type="text" value="0" name="build[]" id="build14" onkeyup="
+									$(&#39;#building14&#39;).val(parseInt($(&#39;#build14&#39;).val()));								
+									"><!-- Dor 2015 12 18, lets you edit field yourself -->
+									<a style="cursor: pointer;" onclick="$(&#39;#build14, #building14&#39;).val(parseInt($(&#39;#build14&#39;).val()) +1);">+</a>
+									<button type="submit" class="build_submit" onclick="$(&#39;.build_form&#39;).submit();return false;">Go</button>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="14" class="desc" name="14">Robotic factories provide construction...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Robot Factory 90&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;247.588.007.857.076.054.979.824.844.800&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;74.276.402.357.122.816.493.947.453.440&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;123.794.003.928.538.027.489.912.422.400&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;14&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 00s
+					</td>
+				</tr>
+			</tbody></table>
+	  
+		</td></tr><tr>
+									<td>
+			7<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(15)">
+							<img src="./Buildings_files/15.gif" alt="Nanite Factory" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(15)">Nanite Factory</a> (Level 89)			</td>
+					<td>
+						Metal: <b style="color:lime;" id="metal_15">618.970.019.642.690.137.449.562.112.000.000</b> Crystal: <b style="color:lime;" id="crystal_15">309.485.009.821.345.068.724.781.056.000.000</b> Deuterium: <b style="color:lime;" id="deuterium_15">61.897.001.964.269.013.744.956.211.200.000</b> 
+					</td>
+					<td>
+																														<input type="hidden" name="cmd" value="insert">
+									<input type="hidden" name="building15" id="building15" value="0">
+									<a style="cursor: pointer;" onclick="$(&#39;#build15, #building15&#39;).val(parseInt($(&#39;#build15&#39;).val()) - 1);">-</a>
+									<input size="2" style="width: 20px;" type="text" value="0" name="build[]" id="build15" onkeyup="
+									$(&#39;#building15&#39;).val(parseInt($(&#39;#build15&#39;).val()));								
+									"><!-- Dor 2015 12 18, lets you edit field yourself -->
+									<a style="cursor: pointer;" onclick="$(&#39;#build15, #building15&#39;).val(parseInt($(&#39;#build15&#39;).val()) +1);">+</a>
+									<button type="submit" class="build_submit" onclick="$(&#39;.build_form&#39;).submit();return false;">Go</button>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="15" class="desc" name="15">This is the ultimate in robotics...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Nanite Factory 89&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;309.485.009.821.345.068.724.781.056.000.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;154.742.504.910.672.534.362.390.528.000.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;30.948.500.982.134.506.872.478.105.600.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;15&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 00s
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+									<td>
+			8<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(21)">
+							<img src="./Buildings_files/21.gif" alt="Shipyard" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(21)">Shipyard</a> (Level 98)			</td>
+					<td>
+						Metal: <b style="color:lime;" id="metal_21">126.765.060.022.822.940.149.670.320.537.600</b> Crystal: <b style="color:lime;" id="crystal_21">63.382.530.011.411.470.074.835.160.268.800</b> Deuterium: <b style="color:lime;" id="deuterium_21">31.691.265.005.705.735.037.417.580.134.400</b> 
+					</td>
+					<td>
+																														<input type="hidden" name="cmd" value="insert">
+									<input type="hidden" name="building21" id="building21" value="0">
+									<a style="cursor: pointer;" onclick="$(&#39;#build21, #building21&#39;).val(parseInt($(&#39;#build21&#39;).val()) - 1);">-</a>
+									<input size="2" style="width: 20px;" type="text" value="0" name="build[]" id="build21" onkeyup="
+									$(&#39;#building21&#39;).val(parseInt($(&#39;#build21&#39;).val()));								
+									"><!-- Dor 2015 12 18, lets you edit field yourself -->
+									<a style="cursor: pointer;" onclick="$(&#39;#build21, #building21&#39;).val(parseInt($(&#39;#build21&#39;).val()) +1);">+</a>
+									<button type="submit" class="build_submit" onclick="$(&#39;.build_form&#39;).submit();return false;">Go</button>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="21" class="desc" name="21">All types of ships and defensive...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Shipyard 98&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;63.382.530.011.411.470.074.835.160.268.800&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;31.691.265.005.705.735.037.417.580.134.400&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;15.845.632.502.852.867.518.708.790.067.200&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;21&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 00s
+					</td>
+				</tr>
+			</tbody></table>
+	  
+		</td></tr><tr>
+									<td>
+			9<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(22)">
+							<img src="./Buildings_files/22.gif" alt="Metal Storage" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(22)">Metal Storage</a> (Level 102)			</td>
+					<td>
+						Metal: <b style="color:red;" id="metal_22">10.141.204.801.825.835.211.973.625.643.008.000</b> 
+					</td>
+					<td>
+																													<span style="color:red">Upgrade to level 103</span>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="22" class="desc" name="22">Provides storage for excess...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Metal Storage 102&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;5.070.602.400.912.917.605.986.812.821.504.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;22&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 02s
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+									<td>
+			10<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(23)">
+							<img src="./Buildings_files/23.gif" alt="Crystal Storage" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(23)">Crystal Storage</a> (Level 95)			</td>
+					<td>
+						Metal: <b style="color:lime;" id="metal_23">79.228.162.514.264.337.593.543.950.336.000</b> Crystal: <b style="color:lime;" id="crystal_23">39.614.081.257.132.168.796.771.975.168.000</b> 
+					</td>
+					<td>
+																														<input type="hidden" name="cmd" value="insert">
+									<input type="hidden" name="building23" id="building23" value="0">
+									<a style="cursor: pointer;" onclick="$(&#39;#build23, #building23&#39;).val(parseInt($(&#39;#build23&#39;).val()) - 1);">-</a>
+									<input size="2" style="width: 20px;" type="text" value="0" name="build[]" id="build23" onkeyup="
+									$(&#39;#building23&#39;).val(parseInt($(&#39;#build23&#39;).val()));								
+									"><!-- Dor 2015 12 18, lets you edit field yourself -->
+									<a style="cursor: pointer;" onclick="$(&#39;#build23, #building23&#39;).val(parseInt($(&#39;#build23&#39;).val()) +1);">+</a>
+									<button type="submit" class="build_submit" onclick="$(&#39;.build_form&#39;).submit();return false;">Go</button>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="23" class="desc" name="23">Provides storage for excess...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Crystal Storage 95&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;39.614.081.257.132.168.796.771.975.168.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;19.807.040.628.566.084.398.385.987.584.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;23&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 00s
+					</td>
+				</tr>
+			</tbody></table>
+	  
+		</td></tr><tr>
+									<td>
+			11<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(24)">
+							<img src="./Buildings_files/24.gif" alt="Deuterium Storage" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(24)">Deuterium Storage</a> (Level 95)			</td>
+					<td>
+						Metal: <b style="color:lime;" id="metal_24">79.228.162.514.264.337.593.543.950.336.000</b> Crystal: <b style="color:lime;" id="crystal_24">79.228.162.514.264.337.593.543.950.336.000</b> 
+					</td>
+					<td>
+																														<input type="hidden" name="cmd" value="insert">
+									<input type="hidden" name="building24" id="building24" value="0">
+									<a style="cursor: pointer;" onclick="$(&#39;#build24, #building24&#39;).val(parseInt($(&#39;#build24&#39;).val()) - 1);">-</a>
+									<input size="2" style="width: 20px;" type="text" value="0" name="build[]" id="build24" onkeyup="
+									$(&#39;#building24&#39;).val(parseInt($(&#39;#build24&#39;).val()));								
+									"><!-- Dor 2015 12 18, lets you edit field yourself -->
+									<a style="cursor: pointer;" onclick="$(&#39;#build24, #building24&#39;).val(parseInt($(&#39;#build24&#39;).val()) +1);">+</a>
+									<button type="submit" class="build_submit" onclick="$(&#39;.build_form&#39;).submit();return false;">Go</button>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="24" class="desc" name="24">Provides storage for excess...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Deuterium Storage 95&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;39.614.081.257.132.168.796.771.975.168.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;39.614.081.257.132.168.796.771.975.168.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;24&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 00s
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+									<td>
+			12<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(31)">
+							<img src="./Buildings_files/31.gif" alt="Research Lab" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(31)">Research Lab</a> (Level 90)			</td>
+					<td>
+						Metal: <b style="color:lime;" id="metal_31">247.588.007.857.076.054.979.824.844.800</b> Crystal: <b style="color:lime;" id="crystal_31">495.176.015.714.152.109.959.649.689.600</b> Deuterium: <b style="color:lime;" id="deuterium_31">247.588.007.857.076.054.979.824.844.800</b> 
+					</td>
+					<td>
+																														<input type="hidden" name="cmd" value="insert">
+									<input type="hidden" name="building31" id="building31" value="0">
+									<a style="cursor: pointer;" onclick="$(&#39;#build31, #building31&#39;).val(parseInt($(&#39;#build31&#39;).val()) - 1);">-</a>
+									<input size="2" style="width: 20px;" type="text" value="0" name="build[]" id="build31" onkeyup="
+									$(&#39;#building31&#39;).val(parseInt($(&#39;#build31&#39;).val()));								
+									"><!-- Dor 2015 12 18, lets you edit field yourself -->
+									<a style="cursor: pointer;" onclick="$(&#39;#build31, #building31&#39;).val(parseInt($(&#39;#build31&#39;).val()) +1);">+</a>
+									<button type="submit" class="build_submit" onclick="$(&#39;.build_form&#39;).submit();return false;">Go</button>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="31" class="desc" name="31">A research lab is required in order to...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Research Lab 90&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;123.794.003.928.538.027.489.912.422.400&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;247.588.007.857.076.054.979.824.844.800&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;123.794.003.928.538.027.489.912.422.400&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;31&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 00s
+					</td>
+				</tr>
+			</tbody></table>
+	  
+		</td></tr><tr>
+									<td>
+			13<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(33)">
+							<img src="./Buildings_files/33.gif" alt="Terraformer" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(33)">Terraformer</a> (Level 92)			</td>
+					<td>
+						Crystal: <b style="color:lime;" id="crystal_33">247.588.007.857.076.054.979.824.844.800.000</b> Deuterium: <b style="color:lime;" id="deuterium_33">495.176.015.714.152.109.959.649.689.600.000</b> Energy: <b style="color:lime;" id="energy_max_33">4.951.760.157.141.521.099.596.496.896.000</b> 
+					</td>
+					<td>
+																														<input type="hidden" name="cmd" value="insert">
+									<input type="hidden" name="building33" id="building33" value="0">
+									<a style="cursor: pointer;" onclick="$(&#39;#build33, #building33&#39;).val(parseInt($(&#39;#build33&#39;).val()) - 1);">-</a>
+									<input size="2" style="width: 20px;" type="text" value="0" name="build[]" id="build33" onkeyup="
+									$(&#39;#building33&#39;).val(parseInt($(&#39;#build33&#39;).val()));								
+									"><!-- Dor 2015 12 18, lets you edit field yourself -->
+									<a style="cursor: pointer;" onclick="$(&#39;#build33, #building33&#39;).val(parseInt($(&#39;#build33&#39;).val()) +1);">+</a>
+									<button type="submit" class="build_submit" onclick="$(&#39;.build_form&#39;).submit();return false;">Go</button>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="33" class="desc" name="33">The Terraformer increases the usable...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Terraformer 92&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;123.794.003.928.538.027.489.912.422.400.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;247.588.007.857.076.054.979.824.844.800.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;33&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 00s
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+									<td>
+			14<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(34)">
+							<img src="./Buildings_files/34.gif" alt="Alliance Depot" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(34)">Alliance Depot</a>			</td>
+					<td>
+						Metal: <b style="color:lime;" id="metal_34">20.000</b> Crystal: <b style="color:lime;" id="crystal_34">40.000</b> 
+					</td>
+					<td>
+																														<input type="hidden" name="cmd" value="insert">
+									<input type="hidden" name="building34" id="building34" value="0">
+									<a style="cursor: pointer;" onclick="$(&#39;#build34, #building34&#39;).val(parseInt($(&#39;#build34&#39;).val()) - 1);">-</a>
+									<input size="2" style="width: 20px;" type="text" value="0" name="build[]" id="build34" onkeyup="
+									$(&#39;#building34&#39;).val(parseInt($(&#39;#build34&#39;).val()));								
+									"><!-- Dor 2015 12 18, lets you edit field yourself -->
+									<a style="cursor: pointer;" onclick="$(&#39;#build34, #building34&#39;).val(parseInt($(&#39;#build34&#39;).val()) +1);">+</a>
+									<button type="submit" class="build_submit" onclick="$(&#39;.build_form&#39;).submit();return false;">Go</button>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="34" class="desc" name="34">The Alliance Depot offers the...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Alliance Depot 0&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;10.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;20.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;34&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 00s
+					</td>
+				</tr>
+			</tbody></table>
+	  
+		</td></tr><tr>
+									<td>
+			15<table>
+				<tbody><tr>
+					<td rowspan="3">
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(44)">
+							<img src="./Buildings_files/44.gif" alt="Missile Silo" width="120" height="120">
+						</a>
+					</td>
+					<td>
+						<a href="http://corrado-game.org/freya/game.php?page=buildings#" onclick="return Dialog.info(44)">Missile Silo</a> (Level 80)			</td>
+					<td>
+						Metal: <b style="color:lime;" id="metal_44">24.178.516.392.292.583.494.123.520.000</b> Crystal: <b style="color:lime;" id="crystal_44">24.178.516.392.292.583.494.123.520.000</b> Deuterium: <b style="color:lime;" id="deuterium_44">1.208.925.819.614.629.174.706.176.000</b> 
+					</td>
+					<td>
+																														<input type="hidden" name="cmd" value="insert">
+									<input type="hidden" name="building44" id="building44" value="0">
+									<a style="cursor: pointer;" onclick="$(&#39;#build44, #building44&#39;).val(parseInt($(&#39;#build44&#39;).val()) - 1);">-</a>
+									<input size="2" style="width: 20px;" type="text" value="0" name="build[]" id="build44" onkeyup="
+									$(&#39;#building44&#39;).val(parseInt($(&#39;#build44&#39;).val()));								
+									"><!-- Dor 2015 12 18, lets you edit field yourself -->
+									<a style="cursor: pointer;" onclick="$(&#39;#build44, #building44&#39;).val(parseInt($(&#39;#build44&#39;).val()) +1);">+</a>
+									<button type="submit" class="build_submit" onclick="$(&#39;.build_form&#39;).submit();return false;">Go</button>
+																										</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<span id="44" class="desc" name="44">Missile silos used for storage of...</span>
+						<br>
+												<br><a class="tooltip_sticky" name="&lt;table style=&#39;width:300px&#39;&gt;&lt;tr&gt;&lt;th colspan=&#39;2&#39;&gt; Missile Silo 80&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Metal&lt;/td&gt;&lt;td&gt;12.089.258.196.146.291.747.061.760.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Crystal&lt;/td&gt;&lt;td&gt;12.089.258.196.146.291.747.061.760.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Deuterium&lt;/td&gt;&lt;td&gt;604.462.909.807.314.587.353.088.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time&lt;/td&gt;&lt;td&gt;00h 00m 00s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#39;2&#39;&gt;
+						&lt;form action=&#39;game.php?page=buildings&#39; method=&#39;post&#39; class=&#39;build_form2&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;cmd&#39; value=&#39;destroy&#39;&gt;
+						&lt;input type=&#39;hidden&#39; name=&#39;building&#39; value=&#39;44&#39;&gt;
+						&lt;button type=&#39;submit&#39; class=&#39;build_submit onlist&#39;&gt;Dismantle&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">Dismantle</a>
+												</td>
+					<td colspan="2">
+						Construction time: <br> 00h 00m 00s
+					</td>
+				</tr>
+			</tbody></table>
+			</td>
+						
+    </tr></tbody></table>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.desc').each(function(){
+		$(this).text($(this).text().trim().substring(0, 40).split(' ').slice(0, -1).join(' ') + '...');
+	});
+});
+</script>
+﻿
+<right>
+<p id="back-top" style="display: none;">
+		<a href="http://corrado-game.org/freya/game.php?page=buildings#top"><span></span>Back to Top</a>
+	</p>
+<div class="clear"></div>
+<div id="footer">
+	
+	<script type="text/javascript">
+	
+	</script>
+	
+
+
+
+          
+	  <!--  <script src="scripts/jquery.countdown.js"></script>-->
+	    <script src="./Buildings_files/p_trader.js.download"></script>
+	    <!--<script src="scripts/jquery.tools.min.js"></script>-->
+                 
+</div>
+
+
+
+
+
+
+</right></body></html>

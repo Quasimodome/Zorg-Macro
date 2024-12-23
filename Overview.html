@@ -1,0 +1,422 @@
+
+<head>
+<title>Corrado-Game Freya - Freya</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./styles/css/jquery.css">
+<link rel="stylesheet" type="text/css" href="./styles/css/ingame.css">
+<link rel="stylesheet" type="text/css" href="./styles/theme/gow/formate.css">
+<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+<script type="text/javascript">
+var serverTime 	= new Date(2024, 11, 23, 6, 58, 02);
+var startTime	= serverTime.getTime();
+var localTime 	= new Date();
+localTS = localTime.getTime();
+var ServerTimezoneOffset = 3600 + localTime.getTimezoneOffset()*60;
+var Gamename	= document.title;
+var Ready		= "Ready";
+var Skin		= "./styles/theme/gow/";
+var Lang		= "en";
+var head_info	= "Information";
+var auth		= 0;
+var days 		= ["Sun","Mon","Tus","Wed","Thu","Fri","Sat"];
+var months 		= ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+var tdformat	= "[M] [D] [d] [H]:[i]:[s]";
+</script>
+<script type="text/javascript" src="./scripts/jQuery.js?v=1.1."></script>
+<script type="text/javascript" src="./scripts/base.js?v=1.1."></script>
+
+
+
+
+<script type="text/javascript" src="./scripts/overview.js?v=1.1."></script>
+<script type="text/javascript" src="./scripts/jquery.countdown.js?v=1.1."></script>
+<script type="text/javascript" src="./scripts/topnav.js?v=1.1."></script>
+<script type="text/javascript" src="./scripts/jquery.countdown_new.js?v=1.1."></script>
+<script type="text/javascript" src="./scripts/planetmenu.js?v=1.1."></script>
+<script type="text/javascript">
+setInterval(function() {
+	serverTime.setSeconds(serverTime.getSeconds()+1);
+}, 1000);
+
+$(function(){
+	$("body").show();
+});
+</script>
+</head>
+<body id="" class="normal" style="background-color:#000;display:none" >
+<div id="tooltip" class="tip"></div><div id="leftmenu">
+<!--link href="styles/css/vertical_menu_basic.css" rel="stylesheet" type="text/css"-->
+<script type='text/javascript' src='scripts/jquery.hoverIntent.minified.js'></script>
+<script type='text/javascript' src='scripts/jquery.dcverticalmegamenu.1.1.js'></script>
+<script type="text/javascript">
+
+$(document).ready(function($){
+	$('#mega-1').dcVerticalMegaMenu({
+		rowItems: '3',
+		speed: 'fast',
+		effect: 'slide',
+		direction: 'right'
+	});
+	
+	var untilYear = new Date();
+	var sinceYear = new Date('12/13/2024');
+$('#defaultCountdown').countdown({since: sinceYear,
+                                  format: 'YdHMS',
+                                  layout:'<b>{yn} {yl},{dn} {dl} and '+ 
+                                       '{hn} {hl}, {mn} {ml}, {sn} {sl}</b>'});
+	
+});
+</script>
+</head>
+
+  <img src="styles/images/logo.png" border="5" width="210px" height="110px">
+<div class="wrap">
+<div class="demo-container clear">
+<div class="dcjq-vertical-mega-menu">
+<ul id="mega-1" class="menu" style="list-style:none;">
+
+<li> <li><a href="?page=reward"><span class="blink_text"><div class="button">Vote Now !!</div></span></a></li>  </li>
+<li><div id="alarm" style="display:none;"><span class="blink_text"><img src="styles/images/light_alarm-strobe.gif"></span></div> </li>
+<li id="menu-item-12001">
+	<a href="#">Special Features</a>
+		<ul>	
+
+<li><a href="?page=reward"STYLE="color: #038DFE;">Vote</a></li>
+		<li><a href="?page=relocate"STYLE="color: #FE0202;">Edit Planet-Moon</a></li>
+		<li><a href="?page=officier" STYLE="color: #22F364;">Officers & Bonus </a></li>
+                <li><a href="?page=lotteryNew"STYLE="color: #FC055B;">Lottery</a></li>
+	        <li><a href="?page=achievement"STYLE="color: #33FF00;">Achievements </a></li>
+		<li><a href="?page=adds"STYLE="color: #6805FC;">Moon Shot Bot</a></li>
+	        <li><a href="?page=bonuspage"STYLE="color: #C8C8C8;">Daily Bonus</a></li>
+		<li><a href="?page=bonuswpage"STYLE="color: #FFFF66;">Lucky7</a></li>
+                <li><a onclick="return Dialog.info(43)" href="#" style="color:#DC143C">Jump Gate</a></li> 
+                <li><a href="?page=buypremium" STYLE="color: #038DFE;">Premium Page</a></li>
+					<li><a href="?page=harvest" STYLE="color: #038DFE;">Harvest</a></li>
+			<li><a href="?page=ptrader"STYLE="color: #038DFE;">Premium Trader</a></li>
+                        <li><a href="?page=search_p"STYLE="color: #038DFE;">Player Search</a></li>
+		        <li><a href="?page=new_rank"STYLE="color: #038DFE;">Statistics II</a></li>
+		        <li><a href="?page=showdebris"STYLE="color: #038DFE;">Debris Field-Search</a></li>
+
+		           </ul>
+       </li>
+
+	
+
+	                             <li><a href="?page=payments"STYLE="color: #038DFE;"><big><b>DarkMatter</b></big></a></li>
+                                     <li><a href="?page=overview">Overview</a></li>
+		<li><a href="?page=imperium">Empire</a></li>		<li><a href="?page=buildings&amp;mode=research">Research</a></li>		<li><a href="?page=buildings">Buildings</a></li>		<li><a href="?page=buildings&amp;mode=fleet">Shipyard</a></li>		<li><a href="?page=buildings&amp;mode=defense">Defense</a></li>		                    <li><a href="?page=ptrader">Trader </a></li>
+		<li><a href="?page=fleet">Fleet</a></li>                <li><a href="?page=galaxy">Galaxy</a></li>		<li><a href="?page=resources">Resources</a></li>	        <li><a href="?page=techtree">Technology</a></li>		<li><a href="?page=battlesim">Combat Simulator</a></li>	        <li><a href="?page=fleettrader">Fleet-Defense-Trader</a></li>		<li><a href="?page=alliance">Alliance</a></li>		                    <li><a href="?page=infouni">Game Details</a></li>
+		<li><a href="http://corrado-game.org/forum/" target="forum">Forum</a></li>                <li><a href="?page=lotteryNew" style="color:lime;padding-right: 10px">Lottery Drawl in:<br><span class="countdown2" secs="228660" ></span></a></li>
+	        
+               
+
+
+
+		<li>
+			<a href="#">
+				<b>Online For</b> :<span id="defaultCountdown" class="countdown"></span></a>
+		</li>
+
+
+
+</ul>
+</div>
+</div>
+</div>
+</div><div id="header">
+	
+
+<td colspan="4" style="height: 10px;">
+
+
+<a href="?page=messages"STYLE="color: #058FFC;padding-right: 10px">|MessagesNew Messages [10]|</a><a href="http://www.corrado-game.org/rules.php" target="_blank"STYLE="color: #058FFC;padding-right: 10px">|Rules-Conditions| </a>
+<a href="http://www.corrado-game.org/faq.php" target="_blank"STYLE="color: #058FFC;padding-right: 10px">|Newbie Guide-Faq | </a>
+<a href="http://www.corrado-game.org/support" target="_blank"STYLE="color: #058FFC;padding-right: 10px">|Support Tickets|</a>
+<a href="?page=statistics"STYLE="color: #058FFC;padding-right: 10px">|Statistics|</a><a href="?page=records"STYLE="color: #058FFC;padding-right: 10px">|Records|</a><a href="?page=topkb"STYLE="color: #058FFC;padding-right: 10px">|Hall of Fame|</a><a href="?page=search"STYLE="color: #058FFC;padding-right: 10px">|Search|</a></li><a href="http://www.corrado-game.org/banned.php" target="_blank"STYLE="color: #058FFC;padding-right: 10px">|Banned|</a>
+<a href="javascript:OpenPopup('?page=notes','Notes', 720, 300);"STYLE="color: #058FFC;padding-right: 10px">|Notes|</a><a href="?page=buddy"STYLE="color: #058FFC;padding-right: 10px">|Buddy list|</a><a href="?page=options"STYLE="color: #058FFC;padding-right: 10px">|Options|</a>
+<a href="?page=logout"STYLE="color: #058FFC;padding-right: 10px">|Logout|</a>
+</tr>
+
+
+
+	 <div id="planetselect">
+		<input style="width: 20px;float:left;position:relative;margin-top:37px;" value="&lt;" onClick="eval('location=\''+document.getElementById('lstPlaneta').options[document.getElementById('lstPlaneta').selectedIndex-1].value+'\'');" type="button">
+		<select onchange="document.location = $(this).val();" name="lstPlaneta" id="lstPlaneta">
+			<option value="?page=&amp;mode=&amp;cp=2195" selected="selected">Lorg&nbsp;[6:32:8]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2198">Corn&nbsp;[6:32:9]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2199">Potato&nbsp;[6:32:10]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2200">Leak&nbsp;[6:32:7]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2201">Watermelon&nbsp;[6:32:11]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2202">Zuch&nbsp;[6:32:6]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2203">Lorg Moon (Moon)&nbsp;[6:32:8]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2206">Colony&nbsp;[6:32:5]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2208">Colony&nbsp;[7:125:9]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2209">Colony&nbsp;[6:125:9]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2212">Colony&nbsp;[6:32:12]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2214">Colony&nbsp;[6:32:4]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2218">Colony&nbsp;[6:32:3]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2256">Colony&nbsp;[6:31:3]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2257">Colony&nbsp;[6:31:4]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2258">Colony&nbsp;[6:31:5]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2259">Colony&nbsp;[6:31:6]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2260">Colony&nbsp;[6:31:7]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2261">Colony&nbsp;[6:31:8]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2262">Colony&nbsp;[6:31:9]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2263">Colony&nbsp;[6:31:10]&nbsp;&nbsp;</option>
+<option value="?page=&amp;mode=&amp;cp=2264">Colony&nbsp;[6:31:11]&nbsp;&nbsp;</option>
+
+		</select>
+		<input style="width: 20px;float:left;position:relative;margin-top:37px;" value="&gt;" onClick="eval('location=\''+document.getElementById('lstPlaneta').options[document.getElementById('lstPlaneta').selectedIndex+1].value+'\'');" type="button"> 
+	</div>
+	<div id="resourcesdiv">
+		<ul id="resourcestable">
+			<li class="resourceinfo">
+				<p><img src="./styles/theme/gow/images/metall.gif" alt="Metal"></p>
+				<p class="res_name">Metal</p>
+				<p class="res_current tooltip" name="8.128.217.657.203.974.441.816.374.057.631.744" id="current_metal" atr="8.128217657204E+33">8.128 Q+</p>
+				<p class="res_max tooltip" name="87.943.806.128.122.069.933.914.018.645.568.737.707.360.548.024.221.696" id="max_metal">87.944 O</p>
+			</li>
+			<li class="resourceinfo">
+				<p><img src="./styles/theme/gow/images/kristall.gif" alt="Crystal"></p>
+				<p class="res_name">Crystal</p>
+				<p class="res_current tooltip" name="836.282.052.833.338.614.883.866.139.164.672" id="current_crystal" atr="8.3628205283334E+32">836 Q+</p>
+				<p class="res_max tooltip" name="1.263.990.527.230.283.486.330.853.713.325.758.022.852.738.421.882.880" id="max_crystal">1.264 O</p>
+			</li>
+			<li class="resourceinfo">
+				<p><img src="./styles/theme/gow/images/deuterium.gif" alt="Deuterium"></p>
+				<p class="res_name">Deuterium</p>
+				<p class="res_current tooltip" name="6.420.872.339.002.085.820.594.244.959.600.640" id="current_deuterium" atr="6.4208723390021E+33">6.421 Q+</p>
+				<p class="res_max tooltip" name="1.263.990.527.230.283.486.330.853.713.325.758.022.852.738.421.882.880" id="max_deuterium">1.264 O</p>
+			</li>
+			<li class="resourceinfo">
+				<p><img src="./styles/theme/gow/images/darkmatter.gif" alt="Dark matter"></p>
+				<p class="res_name">Dark matter</p>
+				<p class="res_current tooltip" name="13.000">13 K</p>
+				<p>&nbsp;</p>
+			</li>
+			<li class="resourceinfo">
+				<p><img src="./styles/theme/gow/images/energie.gif" alt="Energy"></p>
+				<p class="res_name">Energy</p>
+				<p class="res_current tooltip" name="80.566.827.863.121.296.014.650.870.096.461.824/81.907.431.067.728.832.255.519.460.310.384.640">80.567 Q+/81.907 Q+</p>
+				<p>&nbsp;</p>
+			</li>
+		</ul>
+	</div>
+		<script type="text/javascript">
+	var resourceTickerMetal = {
+		available: 8.128217657204E+33,
+		limit: [0, 87943806128122069933914018645568737707360548024221696],
+		production: 3996944572947096473214001071783936,
+		valueElem: "current_metal"
+	};
+	var resourceTickerCrystal = {
+		available: 8.3628205283334E+32,
+		limit: [0, 1263990527230283486330853713325758022852738421882880],
+		production: 287464319733813663352721407737856,
+		valueElem: "current_crystal"
+	};
+	var resourceTickerDeuterium = {
+		available: 6.4208723390021E+33,
+		limit: [0, 1263990527230283486330853713325758022852738421882880],
+		production: 944036023947699021267618553135104,
+		valueElem: "current_deuterium"
+	};
+
+	var vacation = 0;
+	if (!vacation) {
+		resourceTicker(resourceTickerMetal, true);
+		resourceTicker(resourceTickerCrystal, true);
+		resourceTicker(resourceTickerDeuterium, true);
+	}
+	</script>
+ 
+    
+</div>
+
+<script type="text/javascript" src="./scripts/animate.js"></script>
+<div id="content">
+    <table class="table519">
+        <tr>
+        	<th colspan="3"><a href="#" onclick="$('#dialog').dialog('open');return false;" title="Planet Menu">Planet "<span class="planetname">Lorg</span>"</a> (TaffyDuck121)</th>
+	
+	
+	
+	</tr>
+        <tr>
+        	<td>Server time </td>
+        	<td colspan="1" id="servertime">Dec Mon 23 06:58:02</td>
+
+        </tr>
+                <tr>
+            <td>
+                Noob protection
+            </td>
+            <td>
+                <span class="countdown2" secs=516413></span> | <a href="game.php?page=overview&act=rN" onclick="return confirm('Are you sure?')">Remove Noob Protection</a>
+            </td>
+        </tr>
+        
+        <tr>
+        	<td style="white-space: nowrap;">Admins(Online):</td>
+        	<td colspan="2">Currently, none online!</td>
+ 
+
+</tr>
+ <center>  
+	
+</center>	
+	
+	
+<tr>	
+
+</tr>
+
+		
+		<tr>
+			<td colspan="3"><b><span style="color:#FF00FF;font-size:30px">Welcome to FREYA !</span></b></td>
+		</tr>
+
+				<tr>
+
+		
+
+       
+       
+
+
+
+
+
+			<td colspan="3">
+<div id="overview_menu">
+
+		
+		<a href="game.php?page=messages">
+        <div id="menu_sub"  class="menu_sub1">
+			<img src="styles/images/icons/messages.png" id="menu_icon"  class="menu_icon1"/>
+			<p>New Messages [10]</p>
+		</div>
+        </a>
+		<a href="game.php?page=officier">
+		<div id="menu_sub"  class="menu_sub2">
+			<img src="styles/images/icons/officer.png" id="menu_icon"  class="menu_icon2"/>
+			<p>No officer Active</p>
+		</div>
+        </a>
+		<a href="game.php?page=buypremium">
+		<div id="menu_sub"  class="menu_sub3">
+			<img src="styles/images/icons/premium.png" id="menu_icon"  class="menu_icon3"/>
+			<p>Premium Status : <span class="countdown2" secs=2585077></span></p>
+		</div>
+        </a>
+		<a href="game.php?page=messages">
+		<div id="menu_sub"  class="menu_sub4">
+			<img src="styles/images/icons/attack.png" id="menu_icon"  class="menu_icon4"/>
+			<p>Last Attack: MoonBot-Sun 22 Dec 2024 07:49:57 AM CET</p>
+		</div>
+		<a href="game.php?page=buildings&mode=research">
+		<div id="menu_sub" class="menu_sub5">
+			<img src="styles/images/icons/research.png" id="menu_icon"  class="menu_icon5"/>
+			<p>Research : -</p>
+		</div>
+        </a>
+		<a href="game.php?page=buildings">
+		<div id="menu_sub"  class="menu_sub6">
+			<img src="styles/images/icons/building.png" id="menu_icon"  class="menu_icon6"/>
+			<p>Building : -</p>
+		</div>
+        </a>
+	</div>
+
+
+			</td>
+		</tr>
+		
+			     <td colspan="4"><div align="center">
+              <div style="background-image: url(./styles/theme/gow/planeten/normaltempplanet02.jpg);background-repeat:no-repeat;height:300px;margin:0px
+                auto;position:relative;width:700px;margin-bottom:0px ">
+                <div style="float: right;margin:50px 100px 0px 30px;"><a href="game.php?page=overview&amp;cp=2203&amp;re=0" style="cursor:pointer" href="javascript:void(0);" onmouseover="return overlib('Lorg Moon ()');"
+                onmouseout="return nd();"><img src="./styles/theme/gow/planeten/small/s_mond.png" height="50" width="50"></a><br></div>
+            </div></td>
+        </tr>
+        <tr>
+            <td>Diameter</td>
+            <td colspan="2">34.727 km (<a title="Developed fields">1587</a> / <a title="max. developed fields">1710</a> Fields)
+		<B>|<a href='game.php?page=relocate'><font color=#FEFA05>Relocate</font></a> | <a href='game.php?page=planet'><font color=#FEFA05>Add Fields</font></a>| <a href='game.php?page=planet'><font color=#FEFA05>Chance image</font> </B>
+			</td>
+        </tr>
+        <tr>
+            <td>Temperature</td>
+            <td colspan="2">Approximately 13&deg;C to 53&deg;C</td>
+        </tr>
+        <tr>
+            <td>Position</td>
+            <td colspan="2"><a href="game.php?page=galaxy&amp;mode=0&amp;galaxy=6&amp;system=32">[6:32:8]</a></td>
+        </tr>
+        <tr>
+            <td>Points</td>
+            <td colspan="2">523.064.845.305.134.199.790.131.740.672 (Place <a href="game.php?page=statistics&amp;range=44">44</a> of 118)</td>
+        </tr>
+        <tr>
+        	<td>Relocate Cooldown</td>
+        	<td colspan="2">
+        		        			Available
+        		        	</td>
+        </tr>
+	
+						</tr>
+		   </table>
+
+</div>
+<div id="dialog" title="Planet Menu" style="display:none;">
+<form action="game.php" method="POST" onsubmit="return false">
+	<div id="tabs">
+		<ul>
+			<li><a href="#tabs-1">Rename</a></li>
+			<li><a href="#tabs-2">Delete planet</a></li>
+		</ul>
+		<div id="tabs-1">
+			<label for="newname">New name: </label><input class="left" type="text" name="newname" id="newname" size="25" maxlength="20" autocomplete="off">
+		</div>
+		<div id="tabs-2"><h3 style="margin:0">Security Question</h3>Please confirm that the planet<br>
+			<label for="password">Password: </label><input class="left" type="password" name="password" id="password" size="25" maxlength="20" autocomplete="off">
+		</div>
+	</div>
+</form>
+</div>
+<!--
+<script type="text/javascript">
+buildtime	= 0 * 1000;
+</script>
+-->
+
+
+
+﻿
+<right>
+<p id="back-top">
+		<a href="#top"><span></span>Back to Top</a></right>
+	</p>
+<div class="clear"></div>
+<div id="footer">
+	
+	<script type="text/javascript">
+	
+	</script>
+	
+
+
+
+          
+	  <!--  <script src="scripts/jquery.countdown.js"></script>-->
+	    <script src="scripts/p_trader.js"></script>
+	    <!--<script src="scripts/jquery.tools.min.js"></script>-->
+                 
+</div>
+
+
+
+
+
+</body>
+</html>
