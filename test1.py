@@ -1,112 +1,86 @@
+import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import pickle
-import os
-import time
+from selenium.webdriver.support.ui import Select
 
-# Function to log messages to a log file
-def log_message(message):
-    log_path = "D:/Applications/Python/Zorg_Macro/log.txt"
-    with open(log_path, "a") as log_file:
-        log_file.write(message + "\n")
-
-# Set up Chrome options
+# Set up Chrome options (without headless mode for now)
 options = Options()
+options.add_argument('start-maximized')  # Maximize window at start
+options.add_argument('disable-infobars')  # Disable infobars
+options.add_argument('--disable-extensions')  # Disable extensions
 
-# Profile path (adjust if necessary)
-profile_path = r"C:\Users\taffy\AppData\Local\Google\Chrome\User Data"  # Your Chrome user data path
-options.add_argument(f"--user-data-dir={profile_path}")
-options.add_argument("--profile-directory=Profile 1")  # Adjust to the correct profile name
+# Specify path to chromedriver
+chromedriver_path = 'D:/Applications/Python/chromedriver/chromedriver.exe'
 
-# Additional arguments to bypass "not secure" issue
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
-options.add_argument("--disable-blink-features=AutomationControlled")  # Disable the automation flag
-options.add_argument("--remote-debugging-port=9223")
-options.add_argument("--incognito")  # Use incognito mode to prevent detection
-
-# Set a real user-agent string to avoid detection
-options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
-
-# Optional: Add a sleep timer before starting to allow cookies/anything else to load
-options.add_argument("start-maximized")  # Start maximized window
-
-# Path to ChromeDriver
-chromedriver_path = "D:/Applications/Python/chromedriver/chromedriver.exe"
+# Initialize WebDriver
 driver = webdriver.Chrome(service=Service(chromedriver_path), options=options)
 
-# Cookie file location
-cookies_file = "D:/Applications/Python/Zorg_Macro/www.zorgempire.com_cookies.pkl"
+# Define local file paths (replace with your repository file paths)
+login_page_path = 'file:///D:/Applications/Python/Zorg_Macro/Zorg-Macro/saved_html/LoginPage.html'
+buildings_page_path = 'file:///D:/Applications/Python/Zorg_Macro/Zorg-Macro/saved_html/Buildings.html'
+overview_page_path = 'file:///D:/Applications/Python/Zorg_Macro/Zorg-Macro/saved_html/Overview.html'
 
-try:
-    # Step 1: Open Zorg Empire main page
-    driver.get("https://www.zorgempire.com")
-    log_message("1. Zorg Empire main page opened.")
-    print("1. Zorg Empire main page opened.")
+# Load the login page
+driver.get(login_page_path)
 
-    # Step 2: Wait for and click the "Login and Play" button
-    login_and_play_button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, '//a[@class="Button Button--ghost Panel-button Button--login"]'))
-    )
-    login_and_play_button.click()
-    log_message("2. 'Login and Play' button clicked.")
-    print("2. 'Login and Play' button clicked.")
+# Wait for the page to load and ensure the username and password fields are present
+WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.ID, "username"))
+)
 
-    # Step 3: Wait for and click the Google login button
-    try:
-        google_login_button = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, '//a[contains(@href, "/google/")]'))
-        )
-        google_login_button.click()
-        log_message("3. Google login button clicked.")
-        print("3. Google login button clicked.")
-    except Exception as e:
-        log_message(f"Error finding Google login button: {e}")
-        print(f"Error finding Google login button: {e}")
+# Log in using credentials
+username_field = driver.find_element(By.ID, "username")
+password_field = driver.find_element(By.ID, "password")
 
-    # Step 4: Load cookies if available
-    if os.path.exists(cookies_file):
-        driver.get("https://www.zorgempire.com")  # Set context for cookies
-        with open(cookies_file, "rb") as cookies_pickle:
-            cookies = pickle.load(cookies_pickle)
-            for cookie in cookies:
-                driver.add_cookie(cookie)
-        driver.refresh()
-        log_message("4. Cookies loaded and page refreshed.")
-        print("4. Cookies loaded and page refreshed.")
+# Fill in the login form
+username_field.send_keys("TaffyDuck121")
+password_field.send_keys("M5ceSw4Gfm3M5TH")
 
-    # Step 5: Verify successful login
-    try:
-        WebDriverWait(driver, 40).until(EC.url_contains("zorgempire.com"))
-        log_message(f"5. Login successful, current URL: {driver.current_url}")
-        print(f"5. Login successful, current URL: {driver.current_url}")
-    except Exception as e:
-        log_message(f"Error waiting for successful login: {e}")
-        print(f"Error waiting for successful login: {e}")
+# Optionally, select a universe (if needed)
+universe_dropdown = Select(driver.find_element(By.ID, "universe2"))
+universe_dropdown.select_by_value("corrado-game.org/freya")  # Example universe
 
-    # Step 6: Handle dynamic content and wait for page to load completely
-    try:
-        WebDriverWait(driver, 20).until(
-            lambda driver: driver.execute_script('return document.readyState') == 'complete'
-        )
-        log_message("6. JavaScript finished executing.")
-        print("6. JavaScript finished executing.")
-    except Exception as e:
-        log_message(f"Error waiting for JavaScript to complete: {e}")
-        print(f"Error waiting for JavaScript to complete: {e}")
+# Click the login button
+login_button = driver.find_element(By.NAME, "Submit")
+login_button.click()
 
-    # Step 7: Check the page source to debug the login process
-    page_source = driver.page_source
-    log_message(f"Page source: {page_source[:1000]}")  # Log the first 1000 characters
-    print(f"Page source: {page_source[:1000]}")  # Print the first 1000 characters for inspection
+# Wait for the page to load after login (using WebDriverWait to ensure the next page is ready)
+WebDriverWait(driver, 10).until(
+    EC.url_changes(login_page_path)
+)
 
-finally:
-    # Close the browser after testing
-    time.sleep(5)  # Delay to observe results before closing
-    driver.quit()
-    log_message("Browser closed.")
-    print("Browser closed.")
+# Now load the Buildings page
+driver.get(buildings_page_path)
+
+# Wait for the Buildings page to load and ensure relevant elements are present
+WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.ID, "building1"))  # Example button ID
+)
+
+# Click on the first building button (adjust based on actual HTML structure)
+building_button = driver.find_element(By.ID, "building1")
+building_button.click()
+
+# Wait for the action to complete (adjust based on what happens after click)
+WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.CLASS_NAME, "building-details"))  # Example class after click
+)
+
+# Now load the Overview page
+driver.get(overview_page_path)
+
+# Wait for the Overview page to load and ensure relevant elements are present
+WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.CLASS_NAME, "overview-info"))
+)
+
+# Extract information or interact with the Overview page
+overview_text = driver.find_element(By.CLASS_NAME, "overview-info").text
+print("Overview Info:", overview_text)
+
+# Close the browser
+driver.quit()
